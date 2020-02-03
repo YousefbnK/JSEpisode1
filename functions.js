@@ -6,12 +6,11 @@
  */
 function greet(name) {
   // Your code here
-  if (name === undefined) {
-    console.log("Hello");
-  }
-  console.log(`Hello ${name}`);
+  if (name) {
+    console.log(`Hello ${name}`);
+  } else console.log("Hello");
 }
-
+greet("Yousef");
 /**
  * isOdd(n):
  * - receives a number n
@@ -19,11 +18,9 @@ function greet(name) {
  */
 function isOdd(n) {
   // Your code here
-  if (n % 2 !== 0) {
-    return true;
-  } else if (n % 2 === 0) {
-    return false;
-  }
+  return n % 2 !== 0;
+  // if (n % 2 !== 0) return true;
+  // else return false;
 }
 
 /**
@@ -39,11 +36,19 @@ function isOdd(n) {
  */
 function oddsSmallerThan(n) {
   // Your code here
-  if (n === 0 || isNaN(n)) {
-    return n;
+  if (isOdd(n)) {
+    n--;
   }
-  --n;
-  return (n % 2) + oddsSmallerThan(n);
+  return n / 2;
+  // if (isOdd(n)) {
+  //   return (n - 1) / 2;
+  // } else return n / 2;
+
+  // if (n === 0 || isNaN(n)) {
+  //   return n;
+  // }
+  // --n;
+  // return (n % 2) + oddsSmallerThan(n);
 }
 console.log(oddsSmallerThan(15));
 
@@ -59,6 +64,7 @@ console.log(oddsSmallerThan(15));
  */
 function squareOrDouble(n) {
   // Your code here
+  // if (isOdd(n))
   if (n % 2 !== 0) {
     return n * n;
   } else if (n % 2 === 0) {
@@ -87,8 +93,20 @@ function ageFromBirthDate(birthDate) {
   const _MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365;
 
   // Your code here
-  let dob = new Date(birthDate);
-  return ~~((Date.now() - dob) / _MS_PER_YEAR);
+
+  const year = birthDate.slice(0, 4);
+  const month = birthDate.slice(4, 6);
+  const day = birthDate.slice(6);
+
+  const today = new Date();
+  const dob = new Date(`${year}-${month}-${day}`);
+  console.log(today);
+  console.log(dob);
+
+  return Math.floor((today - dob) / _MS_PER_YEAR);
+
+  // let dob = new Date(birthDate);
+  // return ~~((Date.now() - dob) / _MS_PER_YEAR);
   // let today = new Date();
   // let dob = new Date(birthDate);
   // let age = today.getFullYear() - dob.getFullYear();
@@ -97,12 +115,14 @@ function ageFromBirthDate(birthDate) {
   //   age--;
   // }
   // return age;
-  //   let diff_ms = Date.now() - birthDate.getTime();
-  //   let age_dt = new Date(diff_ms);
-  //   return Math.abs(age_dt.getUTCFullYear() - 1970);
+  // let diff_ms = Date.now() - birthDate.getTime();
+  // let age_dt = new Date(diff_ms);
+  // return Math.abs(age_dt.getUTCFullYear() - 1970);
 }
-console.log(ageFromBirthDate("1987-05-06"));
+// console.log(ageFromBirthDate("1990-11-08"));
 // console.log(ageFromBirthDate(new Date(1990, 11, 08)));
+
+ageFromBirthDate("19901108");
 
 module.exports = {
   greet,
