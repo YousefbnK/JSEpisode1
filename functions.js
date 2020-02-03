@@ -6,6 +6,10 @@
  */
 function greet(name) {
   // Your code here
+  if (name === undefined) {
+    console.log("Hello");
+  }
+  console.log(`Hello ${name}`);
 }
 
 /**
@@ -15,6 +19,11 @@ function greet(name) {
  */
 function isOdd(n) {
   // Your code here
+  if (n % 2 !== 0) {
+    return true;
+  } else if (n % 2 === 0) {
+    return false;
+  }
 }
 
 /**
@@ -30,7 +39,13 @@ function isOdd(n) {
  */
 function oddsSmallerThan(n) {
   // Your code here
+  if (n === 0 || isNaN(n)) {
+    return n;
+  }
+  --n;
+  return (n % 2) + oddsSmallerThan(n);
 }
+console.log(oddsSmallerThan(15));
 
 /**
  * squareOrDouble(n):
@@ -44,7 +59,13 @@ function oddsSmallerThan(n) {
  */
 function squareOrDouble(n) {
   // Your code here
+  if (n % 2 !== 0) {
+    return n * n;
+  } else if (n % 2 === 0) {
+    return n * 2;
+  }
 }
+console.log(squareOrDouble(4));
 
 /**
  * ageFromBirthDate(birthDate):
@@ -66,7 +87,22 @@ function ageFromBirthDate(birthDate) {
   const _MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365;
 
   // Your code here
+  let dob = +new Date(birthDate);
+  return ~~((Date.now() - dob) / _MS_PER_YEAR);
+  // let today = new Date();
+  // let dob = new Date(birthDate);
+  // let age = today.getFullYear() - dob.getFullYear();
+  // let m = today.getMonth() - dob.getMonth;
+  // if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+  //   age--;
+  // }
+  // return age;
+  //   let diff_ms = Date.now() - birthDate.getTime();
+  //   let age_dt = new Date(diff_ms);
+  //   return Math.abs(age_dt.getUTCFullYear() - 1970);
 }
+console.log(ageFromBirthDate("19870506"));
+// console.log(ageFromBirthDate(new Date(1990, 11, 08)));
 
 module.exports = {
   greet,
