@@ -87,7 +87,7 @@ function ageFromBirthDate(birthDate) {
   const _MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365;
 
   // Your code here
-  let dob = +new Date(birthDate);
+  let dob = new Date(birthDate);
   return ~~((Date.now() - dob) / _MS_PER_YEAR);
   // let today = new Date();
   // let dob = new Date(birthDate);
@@ -101,7 +101,7 @@ function ageFromBirthDate(birthDate) {
   //   let age_dt = new Date(diff_ms);
   //   return Math.abs(age_dt.getUTCFullYear() - 1970);
 }
-console.log(ageFromBirthDate("19870506"));
+console.log(ageFromBirthDate("1987-05-06"));
 // console.log(ageFromBirthDate(new Date(1990, 11, 08)));
 
 module.exports = {
