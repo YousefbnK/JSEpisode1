@@ -100,11 +100,12 @@ function ageFromBirthDate(birthDate) {
 
   const today = new Date();
   const dob = new Date(`${year}-${month}-${day}`);
-  console.log(today);
-  console.log(dob);
+  // console.log(today);
+  // console.log(dob);
 
   return Math.floor((today - dob) / _MS_PER_YEAR);
 
+  // let age = today - dob
   // let dob = new Date(birthDate);
   // return ~~((Date.now() - dob) / _MS_PER_YEAR);
   // let today = new Date();
@@ -116,13 +117,13 @@ function ageFromBirthDate(birthDate) {
   // }
   // return age;
   // let diff_ms = Date.now() - birthDate.getTime();
-  // let age_dt = new Date(diff_ms);
+  // let age_dt = new Date(age);
   // return Math.abs(age_dt.getUTCFullYear() - 1970);
 }
 // console.log(ageFromBirthDate("1990-11-08"));
 // console.log(ageFromBirthDate(new Date(1990, 11, 08)));
 
-ageFromBirthDate("19901108");
+console.log(ageFromBirthDate("19901108"));
 
 module.exports = {
   greet,
